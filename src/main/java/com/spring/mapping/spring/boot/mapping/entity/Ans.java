@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.engine.internal.Cascade;
 
+import java.util.List;
+
 @Entity
 @Data
 public class Ans {
@@ -11,8 +13,9 @@ public class Ans {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String answer;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_Ques_id")
-    private Question question1;
+  //  @OneToOne(cascade = CascadeType.ALL)
+  //@OneToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
+    private Question question;
 
 }
